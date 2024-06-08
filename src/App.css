@@ -1,0 +1,214 @@
+body{
+  background-color: #f0ebf8;
+  display: flex;
+  flex-direction: column;align-items: center;
+}
+
+.header{
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: last baseline;
+}
+.response,.quiz ,.setting{
+  color: black;
+  display: inline-block;
+  margin-right: 25px;
+  font-size: 18px;
+  font-family: cursive;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.title-container{
+  width: 770px;
+  height:150px;
+  display: block;
+  margin-top: 130px;
+  background-color: white;
+  padding: 10px 0px 0px 20px;
+  border-top: 10px solid #673AB7;
+  border-left: 8px solid rgb(66, 133, 244);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.title-text{
+  color: rgb(32, 33, 36);
+  display: block;
+  height: 48px;
+  width: 720px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 32px;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 1px solid rgb(204, 201, 201);
+}
+.title-description-text{
+  color: rgb(32, 33, 36);
+  display: block;
+  height: 22px;
+  width: 720px;
+  border: none;
+  font-size: 15px;
+  border-bottom: 1px solid rgb(204, 201, 201);
+  border-top: 1px solid rgb(204, 201, 201);
+}
+.title-description-text::placeholder{
+  color: grey;
+}
+.title-description-text:focus{
+  border-top: none;
+}
+
+.question-container{
+  display: block;
+  width: 770px;
+  margin-top: 10px;
+  padding-top: 6px;
+  padding-bottom: 20px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: white;
+  
+}
+.question-index{
+  display: inline-block;
+  width: 10px;
+  margin-top: 15px;
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-family: cursive;
+  background-color: #f0ebf8;
+  border-radius: 20px;
+}
+.question-text{
+  display: inline-block;
+  width: 680px;
+  height: 22px;
+  font-size: 15px;
+  margin-top: 25px;
+  margin-left: 10px;
+  border: none;
+  background-color: #f0ebf8;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.option-text-container{
+  display: flex;
+  flex-direction: row;
+  align-items: last baseline;
+  margin-left: 20px;
+}
+.option-index{
+  display: inline-block;
+  width: 10px;
+  margin-left: 40px;
+  font-size: 15px;
+  padding-right: 2px;
+}
+.option-text{
+  display: inline-block;
+  width: 640px;
+  height: 22px;
+  border: none;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-top: 25px;   
+  border-bottom: 1px solid rgb(204, 201, 201);
+}
+.option-add-btn{
+  width: 640px;
+  display: block;
+  margin-left: 55px;
+  padding-left: 5px;
+  margin-top: 25px;   
+  border-bottom: 1px solid rgb(204, 201, 201);
+  font-size: 16px;
+  color: grey;
+  cursor: pointer;
+}
+.option-delete-btn{
+  display: inline-block;
+  color: red;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+::placeholder{
+  color: rgb(86, 86, 86);
+  font-weight: 400;
+}
+input:focus{
+  outline: none;
+  border-bottom: 1px solid rgb(155, 105, 105);
+}
+
+.add-btn-container{
+  width: 720px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: end;
+}
+.add-btn,
+.submit-btn,
+.remove-btn{
+  border-radius: 50px;
+  font-size: 15px;
+  border: none;
+  padding: 10px;
+  background-color: #673AB7;
+  color: white;
+}
+.add-btn{
+  background-color: rgb(66, 133, 244);;
+}
+.remove-btn{
+  background-color: red;
+}
+.submit-btn-container{
+  width: 720px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: start;
+}
+
+.text-style-container{
+  width: 200px;/*rgb(210, 199, 224);*/
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  margin-left: 5px;
+}
+.style-bold,.style-italic,.style-underline{
+  margin: 2px;  
+  margin-left: 3px;
+}
+.style-bold-btn,.style-italic-btn,.style-underline-btn{
+  border: none;
+  font-size: 20px;
+  height: 30px;
+  width: 40px;
+  border-radius: 2px;
+  background-color: white;
+  color: #673AB7;
+}
+.style-bold-btn{
+  font-weight: bold;
+}
+.style-italic-btn{
+  font-style: italic;
+}
+.style-underline-btn{
+  text-decoration: underline;
+}
+
+.hidden{
+  display: none;
+}

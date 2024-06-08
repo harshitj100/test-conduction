@@ -73,3 +73,5 @@ let optionsData = [{
   optionTexts : ['framwork' , 'runtime env' , 'IDE' , 'language'],
   correctOption : 0,
 }]; 
+
+//align Items center is not working
