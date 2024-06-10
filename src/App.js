@@ -1,12 +1,11 @@
 import Header from "./components/Header.js";
-import TittleComponent from "./components/TittleComponent.js";
-
+import Main from "./components/Main.js";
 import './App.css'
 function App() {
   return (
     <>
     <Header />
-    <TittleComponent />
+    <Main />
     </>
   );
 }

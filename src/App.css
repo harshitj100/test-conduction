@@ -37,7 +37,14 @@ body{
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
-.title-text{
+.section-container{
+  padding-top: 0px;
+  padding: 10px;
+  margin-top: 0px;
+  border-top: 10px solid #673AB7;
+  border-left: 8px solid rgb(66, 133, 244);
+}
+.title-text,.section-text{
   color: rgb(32, 33, 36);
   display: block;
   height: 48px;
@@ -47,7 +54,7 @@ body{
   border: none;
   border-bottom: 1px solid rgb(204, 201, 201);
 }
-.title-description-text{
+.title-description-text,.section-description-text{
   color: rgb(32, 33, 36);
   display: block;
   height: 22px;
@@ -57,10 +64,12 @@ body{
   border-bottom: 1px solid rgb(204, 201, 201);
   border-top: 1px solid rgb(204, 201, 201);
 }
-.title-description-text::placeholder{
+.title-description-text::placeholder,
+.section-description-text::placeholder{
   color: grey;
 }
-.title-description-text:focus{
+.title-description-text:focus,
+.section-description-text:focus{
   border-top: none;
 }
 .default-marks-text{
@@ -80,7 +89,6 @@ body{
   display: block;
   width: 770px;
   margin-top: 10px;
-  padding-top: 6px;
   padding-bottom: 20px;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -108,6 +116,30 @@ body{
   background-color: #f0ebf8;
   padding: 10px;
   border-radius: 8px;
+}
+.marks-container , .correct-option-container{
+  display: inline-block;
+}
+.marks-text , .correct-option-text{
+  display: inline-block;
+  font-family: cursive;
+  font-size: 15px;
+  margin-left: 60px;
+  padding: 10px;
+  border-radius: 8px;
+  color: #673AB7;
+}
+.marks-input , .correct-option-input{
+  width: 30px;
+  height: 22px;
+  border: 1px solid #673AB7;
+  border-radius: 5px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button{
+  -webkit-appearance: none;
 }
 
 .option-text-container{
