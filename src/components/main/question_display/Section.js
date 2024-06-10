@@ -1,6 +1,6 @@
 import React from 'react'
-
-const Section = ({subquestion , index}) => {
+import Option from './option_display/Option'
+const Section = ({subquestion , index , optionData}) => {
   // questionId : 3.1,
   //         questionText : "what is props ?",
   //         questionMarks : quizData.defaultMarks,
@@ -22,6 +22,10 @@ const Section = ({subquestion , index}) => {
             <div className="correct-option-text">correct-option : </div>
             <input type="number" value = {subquestion.correctOptionIndex} className ="correct-option-input"/>
           </div>
+        </div>
+        <div className="option-text-container">
+          {optionData.map((option , index) => (
+            <Option key = {option.optionsId} option = {option} index = {index} questionId = {subquestion.questionId}/>))}
         </div>
       </div>
     </div>

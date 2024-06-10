@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import Section from './Section';
-import Option from './Option';
+import Option from './option_display/Option';
 const Questions = ({question , index}) => {
   const isSection = typeof(question.questionId) === 'string' ? true : false ;
   const [optionData , setOptionData] = useState([{
@@ -48,8 +48,8 @@ const Questions = ({question , index}) => {
           </div>
         </div>
         <div className="option-text-container">
-          {optionData.filter((options , index) => {
-            <Option key = {options.optionsId} options = {options} index = {index} questionId ={question.questionId}/>})}
+          {optionData.map((option , index) => (
+            <Option key = {option.optionsId} option = {option} index = {index} questionId = {question.questionId}/>))}
         </div>
       </div>) : 
       <div  className="section">
@@ -63,13 +63,9 @@ const Questions = ({question , index}) => {
           </div>
         </div> 
         {question.sectionQuestion.map((subquestion , index) => 
-        (<Section key = {subquestion.questionId} subquestion = {subquestion} index = {index}/>))}
+        (<Section key = {subquestion.questionId} subquestion = {subquestion} index = {index} optionData = {optionData}/>))}
       </div>
     }
-
-      <div className="option-text-container">
-        
-      </div>
     </div>    
   )
 }

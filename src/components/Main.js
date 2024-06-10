@@ -1,6 +1,6 @@
 import React from 'react'
 import TittleComponent from './main/TittleComponent'
-import Questions from './main/Questions'
+import Questions from './main/question_display/Questions'
 import { useState } from 'react'
 
 const Main = () => {
@@ -59,7 +59,7 @@ const Main = () => {
   ])
   return (
     <>
-      <TittleComponent />
+      <TittleComponent quizData = {quizData} />
       {questionsData.map((question , index) => 
         (<Questions key = {question.questionId} question = {question} index = {index}/>))}
       
