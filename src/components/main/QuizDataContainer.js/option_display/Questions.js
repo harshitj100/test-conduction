@@ -1,7 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import Section from './Section';
+import './Questions.css'
 import Option from './option_display/Option';
+import AddOption from './option_display/AddOption.js';
+import AddQuestion from './AddQuestion.js';
+
 const Questions = ({question , index}) => {
   const isSection = typeof(question.questionId) === 'string' ? true : false ;
   const [optionData , setOptionData] = useState([{
@@ -51,6 +55,8 @@ const Questions = ({question , index}) => {
           {optionData.map((option , index) => (
             <Option key = {option.optionsId} option = {option} index = {index} questionId = {question.questionId}/>))}
         </div>
+        <AddOption />
+        <AddQuestion />
       </div>) : 
       <div  className="section">
         <div className="section-container"> 

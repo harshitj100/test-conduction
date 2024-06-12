@@ -1,11 +1,14 @@
 import React from 'react'
 import '../styles/Header.css';
+import skillop from '../icons/Skillop.png'
+import hamburgerImage from '../icons/hamburgerImage.png'
+
 const Header = () => {
   return (
     <div className="header">
       <div className="header"> 
       <div className="header-image">
-        <img src="icons/skillop.png" className="skillop-header-image"/>
+        <img src={skillop} className="skillop-header-image"/>
       </div>
       <div className="skillop-header-text">
         Skillop
@@ -19,7 +22,7 @@ const Header = () => {
 
       <div className="side-menu">
         <div className="side-menu-btn">
-          <img src="icons/hamburgerImage.png" className="hamburger-image"/>
+          <img src={hamburgerImage} className="hamburger-image"/>
         </div>
       </div>
 

@@ -8,8 +8,6 @@
   z-index: 1000;
   display: flex;
 }
-
-
 .header-image{
   vertical-align: top;
   margin-top: 5px;
@@ -55,4 +53,8 @@
   font-size: 18px;
   font-family: cursive;
   padding-bottom: 10px;
+}
+.hamburger-image{
+  width: 30px;
+  height: 30px;
 }

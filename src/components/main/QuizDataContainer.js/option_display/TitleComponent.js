@@ -1,6 +1,6 @@
 import React from 'react'
-
-const TittleComponent = ({quizData}) => {
+import './TitleComponent.css'
+const TitleComponent = ({quizData}) => {
   return (
     <div  className="title-container"> 
       <div  className="title-text-container">
@@ -17,5 +17,5 @@ const TittleComponent = ({quizData}) => {
   );
 }
 
-export default TittleComponent
+export default TitleComponent
 

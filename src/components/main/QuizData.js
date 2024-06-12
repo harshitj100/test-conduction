@@ -1,5 +1,5 @@
 import React from 'react'
-import TittleComponent from './QuizDataContainer.js/option_display/TittleComponent'
+import TitleComponent from './QuizDataContainer.js/option_display/TitleComponent'
 import Questions from './QuizDataContainer.js/option_display/Questions'
 import { useState } from 'react'
 
@@ -59,7 +59,7 @@ const QuizData = () => {
   ])
   return (
     <div className = "quiz-data-container">
-      <TittleComponent quizData = {quizData} />
+      <TitleComponent quizData = {quizData} />
       {questionsData.map((question , index) => 
         (<Questions key = {question.questionId} question = {question} index = {index}/>))}
       

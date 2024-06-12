@@ -1,5 +1,8 @@
 import React from 'react'
 import Option from './option_display/Option'
+import AddOption from './option_display/AddOption'
+import AddQuestion from './AddQuestion'
+
 const Section = ({subquestion , index , optionData}) => {
   // questionId : 3.1,
   //         questionText : "what is props ?",
@@ -27,6 +30,8 @@ const Section = ({subquestion , index , optionData}) => {
           {optionData.map((option , index) => (
             <Option key = {option.optionsId} option = {option} index = {index} questionId = {subquestion.questionId}/>))}
         </div>
+        <AddOption />
+        <AddQuestion />
       </div>
     </div>
   )
