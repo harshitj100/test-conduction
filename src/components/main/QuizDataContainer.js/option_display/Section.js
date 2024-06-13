@@ -3,7 +3,7 @@ import Option from './option_display/Option'
 import AddOption from './option_display/AddOption'
 import AddQuestion from './AddQuestion'
 
-const Section = ({subquestion , index , optionData}) => {
+const Section = ({subquestion , index , optionData , addOption}) => {
   // questionId : 3.1,
   //         questionText : "what is props ?",
   //         questionMarks : quizData.defaultMarks,
@@ -30,7 +30,7 @@ const Section = ({subquestion , index , optionData}) => {
           {optionData.map((option , index) => (
             <Option key = {option.optionsId} option = {option} index = {index} questionId = {subquestion.questionId}/>))}
         </div>
-        <AddOption />
+        <AddOption addOption ={addOption} questionId = {subquestion.questionId}/>
         <AddQuestion />
       </div>
     </div>

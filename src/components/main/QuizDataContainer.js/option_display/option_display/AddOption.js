@@ -1,8 +1,9 @@
 import React from 'react'
 import addbtn from './addbtn.png'
-const AddOption = () => {
+const AddOption = ({addOption , questionId}) => {
+  const id = questionId;
   return (
-    <div className="option-add-btn">    
+    <div className="option-add-btn" onClick={() => addOption({id})}>    
       <div className="option-add-btn-text">  
         Add-other-option...       
       </div>

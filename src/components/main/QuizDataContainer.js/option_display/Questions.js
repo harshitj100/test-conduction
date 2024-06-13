@@ -32,8 +32,17 @@ const Questions = ({question , index}) => {
       optionsId : 4,
       optionTexts : ['framwork' , 'runtime env' , 'IDE' , 'language'],
       correctOption : 0,
-    }]);
-
+  }]);
+  function addOption({id}){//0000000000000000000000000000000000000
+    const newOptions = optionData.map((option) => {
+      if (id === option.optionsId){
+        option.optionTexts.push('')
+        console.log(option.optionTexts)
+      }
+      return option;
+    });
+    setOptionData(newOptions);
+  }
   return (
     <div className="question-container">
       {!isSection ? (
@@ -55,7 +64,7 @@ const Questions = ({question , index}) => {
           {optionData.map((option , index) => (
             <Option key = {option.optionsId} option = {option} index = {index} questionId = {question.questionId}/>))}
         </div>
-        <AddOption />
+        <AddOption addOption = {addOption} questionId = {question.questionId} />
         <AddQuestion />
       </div>) : 
       <div  className="section">
@@ -65,11 +74,12 @@ const Questions = ({question , index}) => {
           </div>
           <div  className="section-description-text-container">
             <input type="text" value ={question.sectionDesc} 
-              placeholder="Add description ..."  className="section-description-text"/>
+              placeholder="Add description ...(optional)"  className="section-description-text"/>
           </div>
         </div> 
         {question.sectionQuestion.map((subquestion , index) => 
-        (<Section key = {subquestion.questionId} subquestion = {subquestion} index = {index} optionData = {optionData}/>))}
+        (<Section key = {subquestion.questionId} subquestion = {subquestion} 
+            index = {index} optionData = {optionData} addOption ={addOption}/>))}
       </div>
     }
     </div>    
