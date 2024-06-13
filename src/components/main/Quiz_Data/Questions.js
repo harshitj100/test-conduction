@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
-import Section from './Section';
+import Section from './Section.js';
 import './Questions.css'
-import Option from './option_display/Option';
-import AddOption from './option_display/AddOption.js';
+import Option from './Option.js';
+import AddOption from './AddOption.js';
 import AddQuestion from './AddQuestion.js';
 
 const Questions = ({question , index}) => {

@@ -1,6 +1,6 @@
 import React from 'react'
-import TitleComponent from './QuizDataContainer.js/option_display/TitleComponent'
-import Questions from './QuizDataContainer.js/option_display/Questions'
+import TitleComponent from './Quiz_Data/TitleComponent'
+import Questions from './Quiz_Data/Questions'
 import { useState } from 'react'
 
 const QuizData = () => {

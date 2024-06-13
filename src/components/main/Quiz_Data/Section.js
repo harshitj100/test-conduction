@@ -1,6 +1,6 @@
 import React from 'react'
-import Option from './option_display/Option'
-import AddOption from './option_display/AddOption'
+import Option from './Option'
+import AddOption from './AddOption'
 import AddQuestion from './AddQuestion'
 
 const Section = ({subquestion , index , optionData , addOption}) => {
