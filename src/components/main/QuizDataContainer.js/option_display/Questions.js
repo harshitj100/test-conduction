@@ -33,16 +33,17 @@ const Questions = ({question , index}) => {
       optionTexts : ['framwork' , 'runtime env' , 'IDE' , 'language'],
       correctOption : 0,
   }]);
-  function addOption({id}){//0000000000000000000000000000000000000
+  function addOption(id) {
     const newOptions = optionData.map((option) => {
-      if (id === option.optionsId){
-        option.optionTexts.push('')
-        console.log(option.optionTexts)
+      if (id === option.optionsId) {
+        option.optionTexts.push('');
+        console.log(option.optionTexts);
       }
       return option;
     });
     setOptionData(newOptions);
   }
+  
   return (
     <div className="question-container">
       {!isSection ? (
