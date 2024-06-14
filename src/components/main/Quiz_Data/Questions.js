@@ -39,7 +39,15 @@ const Questions = ({question , index , length}) => {
     const newOptions = optionData.map((option) => {
       if (id === option.optionsId) {
         option.optionTexts.push('');
-        console.log(option.optionTexts);
+      }
+      return option;
+    });
+    setOptionData(newOptions);
+  }
+  function deleteOption(removeIndex , id){
+    const newOptions = optionData.map((option) => {
+      if (id === option.optionsId) {
+        option.optionTexts.splice(removeIndex , 1);
       }
       return option;
     });
@@ -65,7 +73,8 @@ const Questions = ({question , index , length}) => {
         </div>
         <div className="option-text-container">
           {optionData.map((option , index) => (
-            <Option key = {option.optionsId} option = {option} index = {index} questionId = {question.questionId}/>))}
+            <Option key = {option.optionsId} option = {option} index = {index}
+             questionId = {question.questionId} deleteOption={deleteOption}/>))}
         </div>
         <AddOption addOption = {addOption} questionId = {question.questionId} />
         {(length === index+1) ? <AddQuestion /> : <RemoveQuestion />}
