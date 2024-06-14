@@ -40,15 +40,14 @@ input:focus{
   border-bottom: 1px solid rgb(155, 105, 105);
 }
 
-.add-btn-container{
+.add-btn-container , .remove-btn-container{
   margin-top: 20px;
   margin-right: 30px;
   display: flex;
   justify-content: end;
 }
 .add-btn,
-.submit-btn,
-.remove-btn{
+.submit-btn{
   border-radius: 50px;
   font-size: 15px;
   border: none;
@@ -58,9 +57,6 @@ input:focus{
 }
 .add-btn{
   background-color: rgb(66, 133, 244);;
-}
-.remove-btn{
-  background-color: red;
 }
 .submit-btn-container{
   width: 720px;
@@ -105,3 +101,9 @@ input:focus{
   display: none;
 }
 
+.remove-btn-image {
+  width: 30px;
+  height: 30px;
+  margin-right: 40px;
+  cursor: pointer;
+}

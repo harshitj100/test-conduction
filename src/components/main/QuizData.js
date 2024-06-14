@@ -57,11 +57,12 @@ const QuizData = () => {
       correctOptionIndex : 0
     },
   ])
+  let length = questionsData.length;
   return (
     <div className = "quiz-data-container">
       <TitleComponent quizData = {quizData} />
       {questionsData.map((question , index) => 
-        (<Questions key = {question.questionId} question = {question} index = {index}/>))}
+        (<Questions key = {question.questionId} question = {question} index = {index} length = {length}/>))}
       
     </div>
   )

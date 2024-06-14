@@ -5,9 +5,11 @@ import './Questions.css'
 import Option from './opt-display/Option.js';
 import AddOption from './opt-display/AddOption.js';
 import AddQuestion from './AddQuestion.js';
+import RemoveQuestion from './RemoveQuestion.js';
 
-const Questions = ({question , index}) => {
+const Questions = ({question , index , length}) => {
   const isSection = typeof(question.questionId) === 'string' ? true : false ;
+  let sectionLength = (isSection) ? question.sectionQuestion.length : 0;
   const [optionData , setOptionData] = useState([{
       optionsId : 1,
       optionTexts : ['language' , 'compiler' , 'software' , 'system'],
@@ -66,7 +68,7 @@ const Questions = ({question , index}) => {
             <Option key = {option.optionsId} option = {option} index = {index} questionId = {question.questionId}/>))}
         </div>
         <AddOption addOption = {addOption} questionId = {question.questionId} />
-        <AddQuestion />
+        {(length === index+1) ? <AddQuestion /> : <RemoveQuestion />}
       </div>) : 
       <div  className="section">
         <div className="section-container"> 
@@ -80,7 +82,7 @@ const Questions = ({question , index}) => {
         </div> 
         {question.sectionQuestion.map((subquestion , index) => 
         (<Section key = {subquestion.questionId} subquestion = {subquestion} 
-            index = {index} optionData = {optionData} addOption ={addOption}/>))}
+            index = {index} optionData = {optionData} addOption ={addOption} length={sectionLength}/>))}
       </div>
     }
     </div>    

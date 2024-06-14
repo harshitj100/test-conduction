@@ -2,8 +2,10 @@ import React from 'react'
 import Option from './opt-display/Option'
 import AddOption from './opt-display/AddOption'
 import AddQuestion from './AddQuestion'
+import RemoveQuestion from './RemoveQuestion'
 
-const Section = ({subquestion , index , optionData , addOption}) => {
+
+const Section = ({subquestion , index , optionData , addOption , length}) => {
   // questionId : 3.1,
   //         questionText : "what is props ?",
   //         questionMarks : quizData.defaultMarks,
@@ -31,7 +33,7 @@ const Section = ({subquestion , index , optionData , addOption}) => {
             <Option key = {option.optionsId} option = {option} index = {index} questionId = {subquestion.questionId}/>))}
         </div>
         <AddOption addOption ={addOption} questionId = {subquestion.questionId}/>
-        <AddQuestion />
+        {(length === index+1) ? <AddQuestion /> : <RemoveQuestion />}
       </div>
     </div>
   )
