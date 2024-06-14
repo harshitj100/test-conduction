@@ -7,53 +7,9 @@ import AddOption from './opt-display/AddOption.js';
 import AddQuestion from './AddQuestion.js';
 import RemoveQuestion from './RemoveQuestion.js';
 
-const Questions = ({question , index , length}) => {
+const Questions = ({question , index , length , addQuestion , removeQuestion , optionData , addOption , updateOptionData , deleteOption}) => {
   const isSection = typeof(question.questionId) === 'string' ? true : false ;
   let sectionLength = (isSection) ? question.sectionQuestion.length : 0;
-  const [optionData , setOptionData] = useState([{
-      optionsId : 1,
-      optionTexts : ['language' , 'compiler' , 'software' , 'system'],
-      correctOptionIndex : 0,
-    },
-    {
-      optionsId : 2,
-      optionTexts : ['library' , 'desktop' , 'framework' , 'system'],
-      correctOptionIndex : 2,
-    },
-    {
-      optionsId : 3.1,
-      optionTexts : ['HTML-5 attributes' , 'class' , 'object of data' , 'function'],
-      correctOption : 0,
-    },
-    {
-      optionsId : 3.2,
-      optionTexts : ['properties' , 'class' , 'component object' , 'function'],
-      correctOption : 0,
-    },
-    {
-      optionsId : 4,
-      optionTexts : ['framwork' , 'runtime env' , 'IDE' , 'language'],
-      correctOption : 0,
-  }]);
-  function addOption(id) {
-    const newOptions = optionData.map((option) => {
-      if (id === option.optionsId) {
-        option.optionTexts.push('');
-      }
-      return option;
-    });
-    setOptionData(newOptions);
-  }
-  function deleteOption(removeIndex , id){
-    const newOptions = optionData.map((option) => {
-      if (id === option.optionsId) {
-        option.optionTexts.splice(removeIndex , 1);
-      }
-      return option;
-    });
-    setOptionData(newOptions);
-  }
-  
   return (
     <div className="question-container">
       {!isSection ? (
@@ -77,7 +33,9 @@ const Questions = ({question , index , length}) => {
              questionId = {question.questionId} deleteOption={deleteOption}/>))}
         </div>
         <AddOption addOption = {addOption} questionId = {question.questionId} />
-        {(length === index+1) ? <AddQuestion /> : <RemoveQuestion />}
+        {(length === index+1) ? 
+        <AddQuestion addQuestion={addQuestion} updateOptionData={updateOptionData} questionId = {question.questionId} />
+         : <RemoveQuestion removeQuestion = {removeQuestion} questionId = {question.questionId}/>}
       </div>) : 
       <div  className="section">
         <div className="section-container"> 
@@ -91,7 +49,8 @@ const Questions = ({question , index , length}) => {
         </div> 
         {question.sectionQuestion.map((subquestion , index) => 
         (<Section key = {subquestion.questionId} subquestion = {subquestion} 
-            index = {index} optionData = {optionData} addOption ={addOption} length={sectionLength}/>))}
+            index = {index} optionData = {optionData} addOption ={addOption} 
+            length={sectionLength} deleteOption={deleteOption} addQuestion={addQuestion}/>))}
       </div>
     }
     </div>    

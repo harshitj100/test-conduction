@@ -5,7 +5,7 @@ import AddQuestion from './AddQuestion'
 import RemoveQuestion from './RemoveQuestion'
 
 
-const Section = ({subquestion , index , optionData , addOption , length}) => {
+const Section = ({subquestion , index , optionData , addOption , length , deleteOption , addQuestion}) => {
   // questionId : 3.1,
   //         questionText : "what is props ?",
   //         questionMarks : quizData.defaultMarks,
@@ -30,10 +30,10 @@ const Section = ({subquestion , index , optionData , addOption , length}) => {
         </div>
         <div className="option-text-container">
           {optionData.map((option , index) => (
-            <Option key = {option.optionsId} option = {option} index = {index} questionId = {subquestion.questionId}/>))}
+            <Option key = {option.optionsId} option = {option} index = {index} questionId = {subquestion.questionId} deleteOption={deleteOption}/>))}
         </div>
         <AddOption addOption ={addOption} questionId = {subquestion.questionId}/>
-        {(length === index+1) ? <AddQuestion /> : <RemoveQuestion />}
+        {(length === index+1) ? <AddQuestion addQuestion={addQuestion} section={true}/> : <RemoveQuestion />}
       </div>
     </div>
   )

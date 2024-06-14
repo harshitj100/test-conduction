@@ -1,9 +1,13 @@
 import React from 'react'
 
-const AddQuestion = () => {
+const AddQuestion = ({addQuestion , updateOptionData}) => {
+  function handleQuestionAdding(){
+    const id = addQuestion();
+    updateOptionData(id);
+  }
   return (
-    <div class="add-btn-container">
-      <div class='add-btn'> 
+    <div className="add-btn-container">
+      <div className='add-btn' onClick={() => {handleQuestionAdding()}}> 
         Add 
       </div>
     </div>
