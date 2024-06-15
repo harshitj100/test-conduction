@@ -54,6 +54,7 @@ input:focus{
   padding: 10px;
   background-color: #673AB7;
   color: white;
+  cursor: pointer;
 }
 .add-btn{
   background-color: rgb(66, 133, 244);;

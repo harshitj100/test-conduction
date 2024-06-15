@@ -15,31 +15,8 @@ const QuizData = () => {
     questionText : "what is javascript ?",
     questionMarks : quizData.defaultMarks,
     questionDesc : false,
-    questiontype : 'mcq',
     correctOptionIndex : 0
-  },
-  {
-    questionId : 's',
-    sectionName : "discuss some concept about react :-",
-    sectionDesc : '',
-    sectionQuestion : [
-      {
-        questionId : 3.1,
-        questionText : "what is props ?",
-        questionMarks : quizData.defaultMarks,
-        questionDesc : false,
-        questiontype : 'mcq',
-        correctOptionIndex : 0
-      },
-      {
-        questionId : 3.2,
-        questionText : "what is children ?",
-        questionMarks : quizData.defaultMarks,
-        questionDesc : false,
-        questiontype : 'mcq',
-        correctOptionIndex : 0
-      },
-    ]}
+  }
   ])
   let length = questionsData.length;
   function addQuestion(){
@@ -50,7 +27,6 @@ const QuizData = () => {
       questionText : "",
       questionMarks : quizData.defaultMarks,
       questionDesc : false,
-      questiontype : 'mcq',
       correctOptionIndex : 0
     }]
     setQuestionsData(newQuestionsData);
@@ -69,26 +45,6 @@ const QuizData = () => {
     optionsId : 1,
     optionTexts : ['language' , 'compiler' , 'software' , 'system'],
     correctOptionIndex : 0,
-  },
-  {
-    optionsId : 2,
-    optionTexts : ['library' , 'desktop' , 'framework' , 'system'],
-    correctOptionIndex : 2,
-  },
-  {
-    optionsId : 3.1,
-    optionTexts : ['HTML-5 attributes' , 'class' , 'object of data' , 'function'],
-    correctOption : 0,
-  },
-  {
-    optionsId : 3.2,
-    optionTexts : ['properties' , 'class' , 'component object' , 'function'],
-    correctOption : 0,
-  },
-  {
-    optionsId : 4,
-    optionTexts : ['framwork' , 'runtime env' , 'IDE' , 'language'],
-    correctOption : 0,
   }]);
   function addOption(id) {
     const newOptions = optionData.map((option) => {
@@ -119,6 +75,8 @@ const QuizData = () => {
     });
     setOptionData(newOptions);
   }
+  console.log(JSON.stringify(questionsData))
+
   return (
     <div className = "quiz-data-container">
       <TitleComponent quizData = {quizData} />
