@@ -1,6 +1,11 @@
 import React from 'react'
 import '../../styles/QuizAnalysis.css'
-const QuizAnalysis = () => {
+const QuizAnalysis = ({quizData , questionsData , optionData}) => {
+  function finalData(){
+    console.log("question-data =" ,questionsData);
+    console.log("option-data =" ,optionData);
+
+  }
   return (
     <div class="quiz-analysis-container">
       <div class="quiz-analysis-header">
@@ -44,7 +49,7 @@ const QuizAnalysis = () => {
         </div>
       </div>     
       <div class="submit-btn-container">
-        <button class="submit-btn">submit</button>
+        <button class="submit-btn" onClick={finalData}>submit</button>
       </div>     
     </div>
   )
