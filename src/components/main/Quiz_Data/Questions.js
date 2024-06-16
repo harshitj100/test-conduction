@@ -7,8 +7,11 @@ import AddOption from './opt-display/AddOption.js';
 import AddQuestion from './AddQuestion.js';
 import RemoveQuestion from './RemoveQuestion.js';
 
-const Questions = ({questionsData , setQuestionsData , question , index , length , addQuestion , removeQuestion ,
-   optionData , addOption , updateOptionData , deleteOption }) => {
+const Questions = ({questionsData , 
+  setQuestionsData , question , index , 
+  length , addQuestion , removeQuestion ,
+  optionData , setOptionData , addOption , 
+  updateOptionData , deleteOption }) => {
     
     const [questionText , setQuestionText] = useState('');
     const [questionMarks , setQuestionMarks] = useState(4);
@@ -96,9 +99,11 @@ const Questions = ({questionsData , setQuestionsData , question , index , length
         </div>
 
         <div className="option-text-container">
-          {optionData.map((option , index) => (
-            <Option key = {option.optionsId} option = {option} index = {index}
-             questionId = {question.questionId} deleteOption={deleteOption}/>))}
+          {optionData.map((option) => (
+            <Option key = {option.optionsId} 
+             optionData={optionData} setOptionData={setOptionData}
+             option = {option} questionId = {question.questionId} 
+             deleteOption={deleteOption}/>))}
         </div>
         <AddOption addOption = {addOption} questionId = {question.questionId} />
         {(length === index+1) ? 

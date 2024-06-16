@@ -81,7 +81,7 @@ const QuizData = () => {
         setQuestionsData = {setQuestionsData} question = {question} 
         index = {index} length = {length} addQuestion={addQuestion} 
         removeQuestion={removeQuestion} 
-        optionData={optionData} addOption={addOption} 
+        optionData={optionData} setOptionData={setOptionData} addOption={addOption} 
         updateOptionData={updateOptionData} deleteOption={deleteOption} 
         />))}
     </div>
