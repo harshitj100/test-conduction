@@ -32,7 +32,7 @@ const Main = () => {
       questionText : "",
       questionMarks : quizData.defaultMarks,
       questionDesc : false,
-      correctOptionIndex : 1
+      correctOptionIndex : "1"
     }]
     setQuestionsData(newQuestionsData);
     return id;
