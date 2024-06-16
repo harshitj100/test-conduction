@@ -27,11 +27,18 @@ const QuizData = () => {
       questionText : "",
       questionMarks : quizData.defaultMarks,
       questionDesc : false,
-      correctOptionIndex : 0
+      correctOptionIndex : 1
     }]
     setQuestionsData(newQuestionsData);
-    console.log(questionsData , "hello" );
     return id;
+  }
+  function updateOptionData(id){
+    const newOptionData = [...optionData , {
+      optionsId : id,
+      optionTexts : [''],
+      correctOptionIndex : 0,
+    }]
+    setOptionData(newOptionData);
   }
   function removeQuestion(id){
     const newQuestionsData = questionsData.filter((question) => {
@@ -41,9 +48,10 @@ const QuizData = () => {
     })
     setQuestionsData(newQuestionsData);
   }
+  
   const [optionData , setOptionData] = useState([{
     optionsId : 1,
-    optionTexts : ['language' , 'compiler' , 'software' , 'system'],
+    optionTexts : [''],
     correctOptionIndex : 0,
   }]);
   function addOption(id) {
@@ -52,19 +60,8 @@ const QuizData = () => {
         option.optionTexts.push('');
       }
       return option;
-  });
-  console.log(id , "id");
-  setOptionData(newOptions);
-  }
-  function updateOptionData(id){
-    const newOptionData = [...optionData , {
-      optionsId : id,
-      optionTexts : [''],
-      correctOptionIndex : 0,
-    }]
-    setOptionData(newOptionData);
-    console.log('new option data = ' , newOptionData);
-    console.log('option data =' , optionData);
+    });
+    setOptionData(newOptions);
   }
   function deleteOption(removeIndex , id){
     const newOptions = optionData.map((option) => {
@@ -75,16 +72,18 @@ const QuizData = () => {
     });
     setOptionData(newOptions);
   }
-  console.log(JSON.stringify(questionsData))
 
   return (
     <div className = "quiz-data-container">
       <TitleComponent quizData = {quizData} />
       {questionsData.map((question , index) => 
-        (<Questions key = {question.questionId} question = {question} 
-        index = {index} length = {length} addQuestion={addQuestion} removeQuestion={removeQuestion} 
+        (<Questions key = {question.questionId} questionsData = {questionsData}
+        setQuestionsData = {setQuestionsData} question = {question} 
+        index = {index} length = {length} addQuestion={addQuestion} 
+        removeQuestion={removeQuestion} 
         optionData={optionData} addOption={addOption} 
-        updateOptionData={updateOptionData} deleteOption={deleteOption}/>))}
+        updateOptionData={updateOptionData} deleteOption={deleteOption} 
+        />))}
     </div>
   )
 }

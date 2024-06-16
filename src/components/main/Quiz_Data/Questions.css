@@ -43,11 +43,18 @@
   border-radius: 8px;
   color: #673AB7;
 }
-.marks-input , .correct-option-input{
+.marks-input {
   width: 30px;
   height: 22px;
   border: 1px solid #673AB7;
   border-radius: 5px;
   padding-left: 20px;
+  cursor: pointer;
+}
+.correct-option-input{
+  width: 38px;
+  height: 22px;
+  border: 1px #673AB7 solid;
+  border-radius: 5px;
   cursor: pointer;
 }
