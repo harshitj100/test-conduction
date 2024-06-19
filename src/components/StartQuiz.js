@@ -1,10 +1,10 @@
 import React from 'react'
+import SampleQuiz from './SampleQuiz'
 
 const StartQuiz = ({questionsData , optionData , quizData}) => {
   return (
-    <div>
-      start quiz
-    </div>
+    <SampleQuiz questionsData={questionsData} optionData={optionData}
+      quizData={quizData}/>
   )
 }
 
