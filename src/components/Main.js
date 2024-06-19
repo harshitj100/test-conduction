@@ -1,29 +1,10 @@
 import React from 'react'
 import QuizData from './main/QuizData';
 import QuizAnalysis from './main/QuizAnalysis';
-import { useState } from 'react';
 
-const Main = () => {
-  const quizData = {
-    title : "javascript-question-test",
-    description : "this is a test for javascript questons we will get into depth for evry concepts",
-    defaultMarks : 4,
-    };
-  const [questionsData ,setQuestionsData] = useState([
-    {
-      questionId : 1,
-      questionText : "what is javascript ?",
-      questionMarks : quizData.defaultMarks,
-      questionDesc : false,
-      correctOptionIndex : "1"
-    }
-    ])
-  const [optionData , setOptionData] = useState([{
-    optionsId : 1,
-    optionTexts : [''],
-    correctOptionIndex : 0,
-  }]);
 
+const Main = ({questionsData , optionData , setQuestionsData , setOptionData , quizData}) => {
+  
   function addQuestion(){
     const length = questionsData.length
     const id = questionsData[length-1].questionId+1;
