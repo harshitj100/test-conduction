@@ -63,8 +63,10 @@
   color: #673AB7;
 }
 .title-default-marks{
-  border: 1px solid lightblue;
-  padding: 3px 5px 3px 5px;
+  border: 1px solid blue;
+  padding-left: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   width: 40px;
   margin-left: 8px;
   font-size: 15px;

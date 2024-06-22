@@ -1,5 +1,6 @@
 body{
   background-color: #f0ebf8;
+  position: static;
 }
 .main-body-container{
   display: flex;
@@ -46,25 +47,14 @@ input:focus{
   display: flex;
   justify-content: end;
 }
-.add-btn,
-.submit-btn{
+.add-btn{
   border-radius: 50px;
   font-size: 15px;
   border: none;
   padding: 10px;
-  background-color: #673AB7;
+  background-color: rgb(66, 133, 244);
   color: white;
   cursor: pointer;
-}
-.add-btn{
-  background-color: rgb(66, 133, 244);;
-}
-.submit-btn-container{
-  width: 720px;
-  margin-top: 20px;
-  margin-bottom: 50px;
-  display: flex;
-  justify-content: start;
 }
 
 .text-style-container{

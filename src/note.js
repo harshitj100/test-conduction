@@ -75,3 +75,11 @@ let optionsData = [{
 }]; 
 
 //align Items center is not working
+
+function setTimer(hour , min , sec){
+  
+
+  {(sec === 0) ? {
+
+  } : set sec-1}
+}

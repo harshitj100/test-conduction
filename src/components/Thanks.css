@@ -1,5 +1,5 @@
 
-.thank-container{
+.thank-container , .start-quiz-container{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,12 +67,16 @@ textarea:focus{
   border-radius: 20px;
   width: 630px;
   margin-top: 20px;
+  
+  padding: 20px;
 }
 .sam-title-container{
   font-size: 20px;
   font-family: Arial, Helvetica, sans-serif;
   margin-left: 20px;
-  margin-top: 20px;
+  padding: 10px;
+  border-bottom: 2px solid black;
+  background-color: rgb(245, 247, 240);
 }
 .sam-question-container{
   margin: 20px;
@@ -82,24 +86,30 @@ textarea:focus{
   border-radius: 8px;
 }
 .sam-question-text-container{
-  font-size: 17px;
+  font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
 }
 .sam-question-text{
   display: inline-block;
 }
-.sam-question-text-index{
+.sam-question-text-index , .sam-single-option-index{
   display: inline-block;
   margin-right: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: cursive;
 }
 
 .sam-options-container{
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin-top: 10px;
-  font-size: 20px
+  font-size: 17px
 }
 .sam-single-option-container{
   margin: 10px;
+}
+.sam-single-option{
+  display: inline-block;
 }
 
 .start-sam-quizbtn-container{
@@ -117,4 +127,23 @@ textarea:focus{
   font-weight: bold;
   font-size: 17px;
   border: none;
+}
+
+.start-quiz-btn-container{
+  display: flex;
+  justify-content: end;
+  width: 600px;
+}
+.start-quiz-back-btn , .start-quiz-end-btn{
+  margin: 20px;
+  padding: 15px;
+  margin-right: 20px;
+  background-color: rgb(69, 192, 232);
+  color: white;
+  font-weight: bold;
+  font-size: 17px;
+  border: none;
+}
+.start-quiz-end-btn{
+  background-color: green;
 }

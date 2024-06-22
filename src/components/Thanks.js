@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Thanks.css'
-import SampleQuiz from './SampleQuiz'
+import Result from './Result'
 
-const Thanks = ({questionsData , optionData , quizData}) => {
+const Thanks = ({questionsData , optionData , quizData , showResult}) => {
+  
   return (
     <div className='thank-container'>
       <div className="after-msg-container">
@@ -25,14 +26,12 @@ const Thanks = ({questionsData , optionData , quizData}) => {
           <button className="edit-quiz-btn">Edit Quiz</button> 
         </Link>
       </div>
-
-      <SampleQuiz questionsData={questionsData} optionData={optionData}
-              quizData={quizData}/>
       <div className='start-sam-quizbtn-container'>
         <Link to="/sample-quiz">
           <button className='start-sam-quizbtn'>Start quiz</button>
         </Link>
       </div>
+      {showResult && <Result questionsData = {questionsData} optionData={optionData}/> }
     </div>
   )
 }

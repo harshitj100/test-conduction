@@ -3,7 +3,8 @@ import QuizData from './main/QuizData';
 import QuizAnalysis from './main/QuizAnalysis';
 
 
-const Main = ({questionsData , optionData , setQuestionsData , setOptionData , quizData}) => {
+const Main = ({questionsData , optionData , setQuestionsData , 
+  setOptionData , quizData , setQuizData , quizTimer }) => {
   
   function addQuestion(){
     const length = questionsData.length
@@ -22,7 +23,7 @@ const Main = ({questionsData , optionData , setQuestionsData , setOptionData , q
     const newOptionData = [...optionData , {
       optionsId : id,
       optionTexts : [''],
-      correctOptionIndex : 0,
+      userChosenIndex : ''
     }]
     setOptionData(newOptionData);
   }
@@ -61,10 +62,12 @@ const Main = ({questionsData , optionData , setQuestionsData , setOptionData , q
       optionData={optionData} addQuestion={addQuestion} 
       updateOptionData={updateOptionData} removeQuestion={removeQuestion}
       addOption={addOption} deleteOption={deleteOption}
-      setOptionData={setOptionData} setQuestionsData={setQuestionsData}/>
+      setOptionData={setOptionData} setQuestionsData={setQuestionsData}
+      setQuizData={setQuizData}/>
 
       <QuizAnalysis quizData={quizData} questionsData={questionsData} 
-      optionData={optionData}/>
+      optionData={optionData} setQuizData={setQuizData}
+      quizTimer = {quizTimer}/>
     </div>
   )
 }

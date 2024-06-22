@@ -74,7 +74,7 @@ const Questions = ({questionsData ,
             </div>
             <input 
               type="number" 
-              value={questionMarks}
+              value={question.questionMarks}
               placeholder = '' 
               className ="marks-input"
               onChange={(e) => updateQuestionMarks(question.questionId , e.target.value)}

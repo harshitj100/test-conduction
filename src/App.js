@@ -8,35 +8,30 @@ import { BrowserRouter as Router , Route , Routes } from "react-router-dom";
 import StartQuiz from "./components/StartQuiz.js";
 
 function App() {
-  const quizData = {
-    title : "javascript-question-test",
-    description : "this is a test for javascript questons we will get into depth for evry concepts",
-    defaultMarks : 4,
-    };
+  const [quizData , setQuizData] = useState({
+    title : "",
+    description : "",
+    defaultMarks : '',
+    });
+  const [quizTimer , setQuizTimer] = useState({
+    hours : 0,
+    minutes : 0,
+    seconds : 0,
+  })
   const [questionsData ,setQuestionsData] = useState([
     {
       questionId : 1,
-      questionText : "what is javascript ?",
+      questionText : "",
       questionMarks : quizData.defaultMarks,
       questionDesc : false,
       correctOptionIndex : "1"
-    },{
-      questionId : 2,
-      questionText : "what is javascript ?",
-      questionMarks : quizData.defaultMarks,
-      questionDesc : false,
-      correctOptionIndex : "1"
-    }
-    ])
+    }])
   const [optionData , setOptionData] = useState([{
     optionsId : 1,
-    optionTexts : ['a' , 'b' , 'c' , 'd'],
-    correctOptionIndex : 0,
-  },{
-    optionsId : 2,
-    optionTexts : ['a' , 'b' , 'c' , 'd'],
-    correctOptionIndex : 0,
+    optionTexts : [''],
+    userChosenIndex : ''
   }]);
+  const [showResult , setShowResult] = useState(false);
   return (
     <Router>
       <Routes>
@@ -46,7 +41,8 @@ function App() {
             <Header />
             <Main questionsData={questionsData} optionData={optionData}
               setQuestionsData = {setQuestionsData} setOptionData ={setOptionData}
-              quizData = {quizData}/>
+              quizData = {quizData} setQuizData = {setQuizData} 
+              quizTimer = {quizTimer}/>
           </>}/>
         <Route path="/response" element ={
           <>
@@ -55,11 +51,12 @@ function App() {
           </>}/>
         <Route path="/thank-you" element ={
             <Thanks questionsData={questionsData} optionData={optionData}
-              quizData={quizData}/>
+              quizData={quizData} showResult={showResult} />
             }/>
         <Route path="/sample-quiz" element ={
             <StartQuiz questionsData={questionsData} optionData={optionData}
-              quizData={quizData}/>
+              setOptionData = {setOptionData} quizData={quizData} showResult={showResult}
+              setShowResult={setShowResult} quizTimer = {quizTimer} />
             }/>
       </Routes>
     </Router>
