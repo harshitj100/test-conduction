@@ -42,7 +42,7 @@ function App() {
             <Main questionsData={questionsData} optionData={optionData}
               setQuestionsData = {setQuestionsData} setOptionData ={setOptionData}
               quizData = {quizData} setQuizData = {setQuizData} 
-              quizTimer = {quizTimer}/>
+              quizTimer = {quizTimer} setQuizTimer={setQuizTimer}/>
           </>}/>
         <Route path="/response" element ={
           <>

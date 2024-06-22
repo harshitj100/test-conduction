@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import '../../styles/QuizAnalysis.css'
-const QuizAnalysis = ({quizData , questionsData , optionData , setQuizData , quizTimer}) => {
+const QuizAnalysis = ({quizData , questionsData , optionData , setQuizData , quizTimer , setQuizTimer}) => {
   function finalDate(value){
     let [hours , minutes , seconds] = value.split(':');
     hours = Number(hours);
@@ -32,7 +32,7 @@ const QuizAnalysis = ({quizData , questionsData , optionData , setQuizData , qui
             </div>
             <div className="question-num-data">
               <div className="question-num-text">Total Questions </div>
-              <div className="question-num-value">10</div>
+              <div className="question-num-value">1</div>
             </div>
           </div>
           <div className="section-numbers">
@@ -41,7 +41,7 @@ const QuizAnalysis = ({quizData , questionsData , optionData , setQuizData , qui
             </div>
             <div className="section-num-data">
               <div className="section-num-text">Total Sections </div>
-              <div className="section-num-value">10</div>
+              <div className="section-num-value">0</div>
             </div>
           </div>
           <div className="section-names">
@@ -51,13 +51,13 @@ const QuizAnalysis = ({quizData , questionsData , optionData , setQuizData , qui
               </div>
               <div className="section-name-data">              
                 <div className="section-name-text">total questions </div>
-                <div className="section-name-value">10</div>              
+                <div className="section-name-value">1</div>              
               </div>
             </div>
           </div>
           <div className="total-marks-data">
             <div className="total-marks-data-text">Total marks :</div>
-            <div className="total-marks-data-value">100</div>
+            <div className="total-marks-data-value">00</div>
           </div>
         </div>     
         <div className="submit-btn-container">

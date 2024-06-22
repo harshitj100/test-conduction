@@ -4,7 +4,7 @@ import QuizAnalysis from './main/QuizAnalysis';
 
 
 const Main = ({questionsData , optionData , setQuestionsData , 
-  setOptionData , quizData , setQuizData , quizTimer }) => {
+  setOptionData , quizData , setQuizData , quizTimer , setQuizTimer}) => {
   
   function addQuestion(){
     const length = questionsData.length
@@ -67,7 +67,7 @@ const Main = ({questionsData , optionData , setQuestionsData ,
 
       <QuizAnalysis quizData={quizData} questionsData={questionsData} 
       optionData={optionData} setQuizData={setQuizData}
-      quizTimer = {quizTimer}/>
+      quizTimer = {quizTimer} setQuizTimer={setQuizTimer}/>
     </div>
   )
 }
