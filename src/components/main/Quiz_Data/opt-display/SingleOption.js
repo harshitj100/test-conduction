@@ -28,7 +28,7 @@ const SingleOption = ({ index , questionId , deleteOption , optionData , setOpti
   //   console.log('Updated optionData:', newOptionData);
   // };
   function updateOptionText(index , value , optionId){
-    console.log(value);
+    // console.log(index , value ,optionId , "OPTION");
     const newOptionData = optionData.map(option => {
       if (option.optionsId === optionId){
         let newOptionText = option.optionTexts.map((optionText , optionIndex) => {

@@ -35,6 +35,7 @@ const Questions = ({questionsData ,
         }
         return question;
       });
+      console.log(value , "Question Marks")
       setQuestionsData(updatedQuestions);
       setQuestionMarks(value);
     }
@@ -46,6 +47,7 @@ const Questions = ({questionsData ,
         }
         return question;
       });
+      console.log("value" , )
       setQuestionsData(updatedQuestions);
       setCorrectOptionIndex(value);
     }
@@ -125,7 +127,8 @@ const Questions = ({questionsData ,
             index = {index} optionData = {optionData} addOption ={addOption} 
             length={sectionLength} deleteOption={deleteOption} addQuestion={addQuestion}/>))}
       </div>
-    }
+    }.
+    
     </div>    
   )
 }

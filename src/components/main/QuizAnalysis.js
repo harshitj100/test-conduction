@@ -2,6 +2,35 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import '../../styles/QuizAnalysis.css'
 const QuizAnalysis = ({quizData , questionsData , optionData , setQuizData , quizTimer , setQuizTimer}) => {
+  function handleClick(){
+    // console.log(quizData , questionsData , optionData);
+    // post request to send quizData, questionData and optionData to server
+    
+      console.log(quizData, questionsData, optionData);
+
+      fetch('/api/create-test', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          quizData,
+          questionsData,
+          optionData
+        })
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response from the server
+          console.log(data);
+        })
+        .catch(error => {
+          // Handle any errors
+          console.error(error);
+        });
+
+
+  }
   function finalDate(value){
     let [hours , minutes , seconds] = value.split(':');
     hours = Number(hours);
@@ -62,9 +91,9 @@ const QuizAnalysis = ({quizData , questionsData , optionData , setQuizData , qui
         </div>     
         <div className="submit-btn-container">
           <Link to="/thank-you">
-            <button className="submit-btn">submit</button>
+            <button className="submit-btn" onClick = {handleClick}>submit</button>
           </Link>
-        </div>     
+        </div>      
       </div>
       <div className="quiz-timer">
         <div className="add-timer-container">
