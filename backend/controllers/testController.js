@@ -19,52 +19,52 @@ function generateRandomId() {
 // Create a new test
 const createTest = async (req, res) => {
     console.log("Entered..")
-    console.log(req.body)
-    // const testId = uniqueid()
-    // const { userId, title, description, questions } = req.body;
     const userId = generateRandomId()
-    const testId = req.body.quizData.testId 
     const title = req.body.quizData.title 
     const description = req.body.quizData.description
-    const questions =  [req.body.questionsData , req.body.optionData] 
-    console.log(testId ,userId , title , description , questions)
-    if (!userId || !title || !questions) {
+    const question =  req.body.questionsData
+    const options = req.body.optionData
+    if (!userId || !title || !question) {
         return res.status(400).send('Missing required fields.');
     }
 
     try {
-        const newTest = new Test({ testId ,title, description, createdBy: userId });
+        const newTest = new Test({ title, description, createdBy: userId });
         
         await newTest.save();
-
-        //send this newTest._id to the frontend
         
-
-        //send this newTest._id to the frontend
-
-
-        
-        console.log("Enter")
-        for (const questionData of questions) {
-            const newQuestion = new Question({
-                test: testId,
-                questionText: questionData.questionText,
-                questionType: questionData.questionType
-            });
-            await newQuestion.save();
-
-            if (questionData.questionType === 'multipleChoice') {
-                for (const optionText of questionData.options) {
-
-                    const newOption = new Option({ testID : testId  , question: newQuestion._id, optionText });
+        for (const questionData of question) {
+            console.log(questionData) 
+            console.log("Entering Bishh..")
+            for(const option of options){
+                console.log(option) 
+                if(option.optionsId === questionData.questionId){
+                    const newQuestion = new Question({
+                        test: newTest._id,
+                        questionId: questionData.questionId,
+                        questionText: questionData.questionText,
+                        correctOptionIndex: questionData.correctOptionIndex,
+                        questionMarks: questionData.questionMarks ,
+                    });
+                    const newOption = new Option({ 
+                        test: newTest._id,
+                        question: newQuestion._id, 
+                        options: option.optionTexts ,
+                    });  
+                    console.log(option.optionTexts)
+                    console.log("Entered Bishh..")
+                    await newQuestion.save();
                     await newOption.save();
-                    newQuestion.options.push(newOption._id);
+                    console.log("Bishh..")                  
                 }
-                await newQuestion.save();
             }
+                // const newOption = new Option({ 
+                //     question: newQuestion._id, 
+                //     options: optionData.optionTexts ,
+                // });
+                // await newOption.save();
         }
-
-        res.status(201).send('Test created successfully.');
+        res.status(200)
     } catch (error) {
         res.status(500).send('Error creating test.');
     }
@@ -109,7 +109,7 @@ const getAllTests = async (req, res) => {
 const getTestById = async (req, res) => {
     const { testId } = req.params;
     try {
-        const test = await Test.findById(testId).populate('createdBy', 'name email');
+        const test = await Test.findById(testId).populate('createdBy');
         if (!test) {
             return res.status(404).send('Test not found.');
         }

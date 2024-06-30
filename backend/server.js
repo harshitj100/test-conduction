@@ -19,6 +19,12 @@ module.exports = connectDB;
 const app = express();
 app.use(express.json());
 app.use('/api', require('./routes/testRoutes'));
+app.post('/:slug', (req, res) => {
+    res.send(`Hello World! ${req.params.slug}`);
+    const testId = req.params.slug;
+    console.log(testId);
 
+
+});
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

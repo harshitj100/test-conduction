@@ -11,14 +11,14 @@ const Thanks = ({ questionsData, optionData, quizData, showResult }) => {
         <div className="after-msg-input-container">
           <input
             contentEditable="false"
-            value={"localhost:3000/" + quizData.testId}
+            value={"localhost:3000/test/" + quizData.testId}
             type="text"
             className="after-msg-input"
           ></input>
         </div>
         <div className="sample-quiz-container">
           <div className="sample-quiz-text">Try your quiz ?</div>
-          <Link to={"/" + quizData.testId}>
+          <Link to={"/test/" + quizData.testId}>
             <div className="sample-quiz">quiz</div>
           </Link>
         </div>

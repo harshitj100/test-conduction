@@ -26,16 +26,19 @@ const testSchema = new Schema({
 // Question Schema
 const questionSchema = new Schema({
     test: { type: Schema.Types.ObjectId, ref: 'Test', required: true },
+    questionId: { type: Number, required: true },
     questionText: { type: String, required: true },
-    questionType: { type: String, enum: ['multipleChoice', 'shortAnswer', 'longText'], required: true },
-    options: [{ type: Schema.Types.ObjectId, ref: 'Option' }]
+    // questionType: { type: String, enum: ['multipleChoice', 'shortAnswer', 'longText'], required: true },
+    questionMarks: { type: Number, required: true },
+    correctOptionIndex: { type: Number, required: true },
+    // options: [{ type: Schema.Types.ObjectId, ref: 'Option' }]
 }, { timestamps: true });
 
 // Option Schema
 const optionSchema = new Schema({
-    testID : { type: Number, required: true },
-    question: { type: Schema.Types.ObjectId, ref: 'Question', required: true },
-    optionText: { type: String, required: true }
+    testId : { type: Number, required: true },
+    optionId: { type: Number, required: true },
+    options: [{ type: Schema.Types.ObjectId}],
 }, { timestamps: true });
 
 // Response Schema
