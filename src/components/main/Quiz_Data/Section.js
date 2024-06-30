@@ -19,10 +19,10 @@ const Section = ({subquestion , index , optionData , addOption , length , delete
         <input type="text"  value = {subquestion.questionText} 
           placeholder="Question . . ." className="question-text"/>
         <div className="other-info-container">
-          <div className="marks-container">
+          {/* <div className="marks-container">
             <div className="marks-text">marks : </div>
             <input type="number" value = {subquestion.questionMarks} className ="marks-input"/>
-          </div>
+          </div> */}
           <div className="correct-option-container">
             <div className="correct-option-text">correct-option : </div>
             <input type="number" value = {subquestion.correctOptionIndex} className ="correct-option-input"/>

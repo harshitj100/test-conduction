@@ -1,39 +1,38 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './Thanks.css'
-import Result from './Result'
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Thanks.css";
+import Result from "./Result";
 
-const Thanks = ({questionsData , optionData , quizData , showResult}) => {
-  
+const Thanks = ({ questionsData, optionData, quizData, showResult }) => {
   return (
-    <div className='thank-container'>
+    <div className="thank-container">
       <div className="after-msg-container">
-        <div className="after-msg-text">
-          Add any Message after the quiz for participants:
-        </div>
+        <div className="after-msg-text">Your Test is Ready !</div>
         <div className="after-msg-input-container">
-          <textarea type="text" className="after-msg-input"></textarea>
+          <input
+            contentEditable="false"
+            value={"localhost:3000/" + quizData.testId}
+            type="text"
+            className="after-msg-input"
+          ></input>
         </div>
-        <div className='sample-quiz-container'>
-          <div className="sample-quiz-text">
-            Try your quiz ?
-          </div>
-          <Link to="/sample-quiz">
+        <div className="sample-quiz-container">
+          <div className="sample-quiz-text">Try your quiz ?</div>
+          <Link to={"/" + quizData.testId}>
             <div className="sample-quiz">quiz</div>
           </Link>
         </div>
-        <Link to="/">
-          <button className="edit-quiz-btn">Edit Quiz</button> 
-        </Link>
       </div>
-      <div className='start-sam-quizbtn-container'>
-        <Link to="/sample-quiz">
-          <button className='start-sam-quizbtn'>Start quiz</button>
+      {/* <div className="start-sam-quizbtn-container">
+        <Link to={"/" + quizData.testId}>
+          <button className="start-sam-quizbtn">Open quiz</button>
         </Link>
-      </div>
-      {showResult && <Result questionsData = {questionsData} optionData={optionData}/> }
+      </div> */}
+      {showResult && (
+        <Result questionsData={questionsData} optionData={optionData} />
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Thanks
+export default Thanks;

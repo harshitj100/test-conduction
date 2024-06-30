@@ -6,9 +6,18 @@ import './styles/App.css';
 import { useState } from 'react';
 import { BrowserRouter as Router , Route , Routes } from "react-router-dom";
 import StartQuiz from "./components/StartQuiz.js";
-
+function uniqueid() {
+  let counter = 0;
+  function generateUniqueNumber() {
+    const timestamp = Date.now();
+    counter++;
+    return timestamp + counter;
+  }
+  return generateUniqueNumber();
+}
 function App() {
   const [quizData , setQuizData] = useState({
+    testId : uniqueid(),
     title : "",
     description : "",
     defaultMarks : '',
@@ -53,7 +62,7 @@ function App() {
             <Thanks questionsData={questionsData} optionData={optionData}
               quizData={quizData} showResult={showResult} />
             }/>
-        <Route path="/sample-quiz" element ={
+        <Route path={"/" + quizData.testId} element ={
             <StartQuiz questionsData={questionsData} optionData={optionData}
               setOptionData = {setOptionData} quizData={quizData} showResult={showResult}
               setShowResult={setShowResult} quizTimer = {quizTimer} />

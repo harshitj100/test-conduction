@@ -1,7 +1,16 @@
 import React from 'react'
 import QuizData from './main/QuizData';
 import QuizAnalysis from './main/QuizAnalysis';
-
+//generate a unique test id for each test
+function uniqueid() {
+  let counter = 0;
+  function generateUniqueNumber() {
+    const timestamp = Date.now();
+    counter++;
+    return timestamp + counter;
+  }
+  return generateUniqueNumber();
+}
 
 const Main = ({questionsData , optionData , setQuestionsData , 
   setOptionData , quizData , setQuizData , quizTimer , setQuizTimer}) => {
@@ -55,7 +64,7 @@ const Main = ({questionsData , optionData , setQuestionsData ,
     });
     setOptionData(newOptions);
   }
-  
+  console.log(quizData)
   return (
     <div className="main-body-container">
       <QuizData quizData={quizData} questionsData={questionsData} 

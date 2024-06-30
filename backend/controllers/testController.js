@@ -12,19 +12,7 @@ function generateRandomId() {
 
 // }
 
-function uniqueid() {
-    let counter = 0;
-  
-    function generateUniqueNumber() {
-      const timestamp = Date.now();
-      counter++;
-      return timestamp + counter;
-    }
-    return generateUniqueNumber();
-    // Example usage:
-    // console.log(generateUniqueNumber()); // Unique number
-    // console.log(generateUniqueNumber()); // Another unique number
-  }
+
 
 
 
@@ -32,9 +20,10 @@ function uniqueid() {
 const createTest = async (req, res) => {
     console.log("Entered..")
     console.log(req.body)
-    const testId = uniqueid()
+    // const testId = uniqueid()
     // const { userId, title, description, questions } = req.body;
     const userId = generateRandomId()
+    const testId = req.body.quizData.testId 
     const title = req.body.quizData.title 
     const description = req.body.quizData.description
     const questions =  [req.body.questionsData , req.body.optionData] 

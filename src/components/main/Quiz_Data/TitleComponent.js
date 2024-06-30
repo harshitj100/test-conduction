@@ -41,7 +41,7 @@ const TitleComponent = ({quizData , setQuizData}) => {
         />
       </div>
       <div  className="default-marks-text-container">
-        <div className="title-default-marks-text">Default Marks = </div>
+        <div className="title-default-marks-text">Marks for each Question : </div>
         <input 
         type="number" 
         value={quizData.defaultMarks}  
