@@ -17,6 +17,7 @@ const userSchema = new Schema({
 
 // Test Schema
 const testSchema = new Schema({
+    testId : { type: Number, required: true },
     title: { type: String, required: true },
     description: { type: String },
     createdBy: { type: Number, required: true }
@@ -32,6 +33,7 @@ const questionSchema = new Schema({
 
 // Option Schema
 const optionSchema = new Schema({
+    testID : { type: Number, required: true },
     question: { type: Schema.Types.ObjectId, ref: 'Question', required: true },
     optionText: { type: String, required: true }
 }, { timestamps: true });

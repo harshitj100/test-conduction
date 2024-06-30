@@ -5,30 +5,60 @@ function generateRandomId() {
     // Generate a random number between 1000 and 9999 (inclusive)
     return Math.floor(1000 + Math.random() * 9000);
 }
+//creating an api to send the test id generated in create test to the frontend
+// function testid (id){
+//     const testId = id;
+//     res.send(testId);
+
+// }
+
+function uniqueid() {
+    let counter = 0;
+  
+    function generateUniqueNumber() {
+      const timestamp = Date.now();
+      counter++;
+      return timestamp + counter;
+    }
+    return generateUniqueNumber();
+    // Example usage:
+    // console.log(generateUniqueNumber()); // Unique number
+    // console.log(generateUniqueNumber()); // Another unique number
+  }
+
 
 
 // Create a new test
 const createTest = async (req, res) => {
     console.log("Entered..")
     console.log(req.body)
+    const testId = uniqueid()
     // const { userId, title, description, questions } = req.body;
     const userId = generateRandomId()
     const title = req.body.quizData.title 
     const description = req.body.quizData.description
     const questions =  [req.body.questionsData , req.body.optionData] 
-    console.log(userId , title , description , questions)
+    console.log(testId ,userId , title , description , questions)
     if (!userId || !title || !questions) {
         return res.status(400).send('Missing required fields.');
     }
 
     try {
-        const newTest = new Test({ title, description, createdBy: userId });
+        const newTest = new Test({ testId ,title, description, createdBy: userId });
         
         await newTest.save();
+
+        //send this newTest._id to the frontend
+        
+
+        //send this newTest._id to the frontend
+
+
+        
         console.log("Enter")
         for (const questionData of questions) {
             const newQuestion = new Question({
-                test: newTest._id,
+                test: testId,
                 questionText: questionData.questionText,
                 questionType: questionData.questionType
             });
@@ -36,7 +66,8 @@ const createTest = async (req, res) => {
 
             if (questionData.questionType === 'multipleChoice') {
                 for (const optionText of questionData.options) {
-                    const newOption = new Option({ question: newQuestion._id, optionText });
+
+                    const newOption = new Option({ testID : testId  , question: newQuestion._id, optionText });
                     await newOption.save();
                     newQuestion.options.push(newOption._id);
                 }
