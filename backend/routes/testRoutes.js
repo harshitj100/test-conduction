@@ -14,7 +14,7 @@ const testController = require('../controllers/testController');
 router.post('/create-test', testController.createTest);
 router.post('/submit-response', testController.submitResponse);
 router.get('/tests', testController.getAllTests);
-router.get('/test/:testId', testController.getTestById);
+router.get('/:testId', testController.getTestById);
 
 module.exports = router;
 

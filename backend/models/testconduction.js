@@ -25,7 +25,7 @@ const testSchema = new Schema({
 
 // Question Schema
 const questionSchema = new Schema({
-    test: { type: Schema.Types.ObjectId, ref: 'Test', required: true },
+    testId : { type: Number, required: true },
     questionId: { type: Number, required: true },
     questionText: { type: String, required: true },
     // questionType: { type: String, enum: ['multipleChoice', 'shortAnswer', 'longText'], required: true },
@@ -38,7 +38,7 @@ const questionSchema = new Schema({
 const optionSchema = new Schema({
     testId : { type: Number, required: true },
     optionId: { type: Number, required: true },
-    options: [{ type: Schema.Types.ObjectId}],
+    options: [{ type: String, required: true }]
 }, { timestamps: true });
 
 // Response Schema
