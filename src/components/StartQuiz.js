@@ -3,8 +3,7 @@ import SampleQuiz from './SampleQuiz'
 import { Link } from 'react-router-dom'
 import { useState , useEffect } from 'react'
 
-const StartQuiz = ({questionsData , optionData , setOptionData , quizData , 
-    showResult , setShowResult , quizTimer }) => {
+const StartQuiz = () => {
 
   let [isQuizOn , setIsQuizOn] = useState(true);
   // let {hours , minutes , seconds , totalTime} = quizData.quizTimer;
@@ -61,8 +60,7 @@ const StartQuiz = ({questionsData , optionData , setOptionData , quizData ,
         <div className="timer">{hoursTime} - {minutesTime} - {secondsTime}</div>
       </div>
       <div className='start-quiz-container'>
-        <SampleQuiz questionsData={questionsData} optionData={optionData}
-          setOptionData ={setOptionData} quizData={quizData}/>
+        <SampleQuiz />
         <div className='start-quiz-btn-container'>
           <Link to="/">
             <button className='start-quiz-back-btn'>

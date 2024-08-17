@@ -1,7 +1,7 @@
 import React from 'react'
 import './SampleQuiz.js'
 
-const SampleQuiz = ({questionsData , optionData , setOptionData , quizData}) => {
+const SampleQuiz = () => {
   function userChoice(userIndex , id){
     let newOptionData = optionData.map((option) => {
       if (option.optionsId === id){

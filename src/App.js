@@ -63,9 +63,7 @@ function App() {
               quizData={quizData} showResult={showResult} />
             }/>
         <Route path={"/" + quizData.testId} element ={
-            <StartQuiz questionsData={questionsData} optionData={optionData}
-              setOptionData = {setOptionData} quizData={quizData} showResult={showResult}
-              setShowResult={setShowResult} quizTimer = {quizTimer} />
+            <StartQuiz />
             }/>
       </Routes>
     </Router>
